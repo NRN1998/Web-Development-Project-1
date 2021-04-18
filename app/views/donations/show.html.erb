@@ -20,7 +20,7 @@
 
     <dl>
       <dt>
-        Donator
+        Donor
       </dt>
       <dd>
         <%= @the_donation.donator_id %>
@@ -62,7 +62,7 @@
     <form action="/modify_donation/<%= @the_donation.id %>"  method="post" >
       <div>
         <label for="donator_id_box">
-          Donator
+          Donor
         </label>
 
         <input type="text" id="donator_id_box" name="query_donator_id" value="<%= @the_donation.donator_id %>">
