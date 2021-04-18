@@ -1,0 +1,146 @@
+<div>
+  <div>
+    <h1>
+      User content #<%= @the_user_content.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/user_contents">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_user_content/<%= @the_user_content.id %>">
+          Delete user content
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Photos
+      </dt>
+      <dd>
+        <%= @the_user_content.photos %>
+      </dd>
+
+      <dt>
+        Videos
+      </dt>
+      <dd>
+        <%= @the_user_content.videos %>
+      </dd>
+
+      <dt>
+        Caption
+      </dt>
+      <dd>
+        <%= @the_user_content.caption %>
+      </dd>
+
+      <dt>
+        Owner
+      </dt>
+      <dd>
+        <%= @the_user_content.owner_id %>
+      </dd>
+
+      <dt>
+        Likes count
+      </dt>
+      <dd>
+        <%= @the_user_content.likes_count %>
+      </dd>
+
+      <dt>
+        Comments count
+      </dt>
+      <dd>
+        <%= @the_user_content.comments_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_user_content.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_user_content.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit user content
+    </h2>
+
+    <form action="/modify_user_content/<%= @the_user_content.id %>"  method="post" >
+      <div>
+        <label for="photos_box">
+          Photos
+        </label>
+
+        <input type="text" id="photos_box" name="query_photos" value="<%= @the_user_content.photos %>">
+      </div>
+
+      <div>
+        <label for="videos_box">
+          Videos
+        </label>
+
+        <input type="text" id="videos_box" name="query_videos" value="<%= @the_user_content.videos %>">
+      </div>
+
+      <div>
+        <label for="caption_box">
+          Caption
+        </label>
+
+        <input type="text" id="caption_box" name="query_caption" value="<%= @the_user_content.caption %>">
+      </div>
+
+      <div>
+        <label for="owner_id_box">
+          Owner
+        </label>
+
+        <input type="text" id="owner_id_box" name="query_owner_id" value="<%= @the_user_content.owner_id %>">
+      </div>
+
+      <div>
+        <label for="likes_count_box">
+          Likes count
+        </label>
+
+        <input type="text" id="likes_count_box" name="query_likes_count" value="<%= @the_user_content.likes_count %>">
+      </div>
+
+      <div>
+        <label for="comments_count_box">
+          Comments count
+        </label>
+
+        <input type="text" id="comments_count_box" name="query_comments_count" value="<%= @the_user_content.comments_count %>">
+      </div>
+
+      <button>
+        Update user content
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
