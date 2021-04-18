@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Subscription #<%= @the_subscription.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/subscriptions">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_subscription/<%= @the_subscription.id %>">
+          Delete subscription
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Subscriber
+      </dt>
+      <dd>
+        <%= @the_subscription.subscriber_id %>
+      </dd>
+
+      <dt>
+        Creator
+      </dt>
+      <dd>
+        <%= @the_subscription.creator_id %>
+      </dd>
+
+      <dt>
+        Active
+      </dt>
+      <dd>
+        <%= @the_subscription.active %>
+      </dd>
+
+      <dt>
+        Duration
+      </dt>
+      <dd>
+        <%= @the_subscription.duration %>
+      </dd>
+
+      <dt>
+        Amount
+      </dt>
+      <dd>
+        <%= @the_subscription.amount %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_subscription.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_subscription.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit subscription
+    </h2>
+
+    <form action="/modify_subscription/<%= @the_subscription.id %>"  method="post" >
+      <div>
+        <label for="subscriber_id_box">
+          Subscriber
+        </label>
+
+        <input type="text" id="subscriber_id_box" name="query_subscriber_id" value="<%= @the_subscription.subscriber_id %>">
+      </div>
+
+      <div>
+        <label for="creator_id_box">
+          Creator
+        </label>
+
+        <input type="text" id="creator_id_box" name="query_creator_id" value="<%= @the_subscription.creator_id %>">
+      </div>
+
+      <div>
+        <input type="checkbox" id="active_box" name="query_active" value="1" <%= "checked" if @the_subscription.active %>>
+
+        <label for="active_box">
+            Active
+        </label>
+      </div>
+
+      <div>
+        <label for="duration_box">
+          Duration
+        </label>
+
+        <input type="text" id="duration_box" name="query_duration" value="<%= @the_subscription.duration %>">
+      </div>
+
+      <div>
+        <label for="amount_box">
+          Amount
+        </label>
+
+        <input type="text" id="amount_box" name="query_amount" value="<%= @the_subscription.amount %>">
+      </div>
+
+      <button>
+        Update subscription
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

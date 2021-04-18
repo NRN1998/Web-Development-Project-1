@@ -1,0 +1,148 @@
+<div>
+  <div>
+    <h1>
+      List of all subscriptions
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new subscription
+    </h2>
+
+    <form action="/insert_subscription" method="post">
+      <div>
+        <label for="subscriber_id_box">
+          Subscriber
+        </label>
+
+        <input type="text" id="subscriber_id_box" name="query_subscriber_id">
+      </div>
+
+      <div>
+        <label for="creator_id_box">
+          Creator
+        </label>
+
+        <input type="text" id="creator_id_box" name="query_creator_id">
+      </div>
+
+      <div>
+        <input type="checkbox" id="active_box" name="query_active" value="1">
+
+        <label for="active_box">Active</label>
+      </div>
+
+      <div>
+        <label for="duration_box">
+          Duration
+        </label>
+
+        <input type="text" id="duration_box" name="query_duration">
+      </div>
+
+      <div>
+        <label for="amount_box">
+          Amount
+        </label>
+
+        <input type="text" id="amount_box" name="query_amount">
+      </div>
+
+      <button>
+        Create subscription
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Subscriber
+        </th>
+
+        <th>
+          Creator
+        </th>
+
+        <th>
+          Active
+        </th>
+
+        <th>
+          Duration
+        </th>
+
+        <th>
+          Amount
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_subscriptions.each do |a_subscription| %>
+      <tr>
+        <td>
+          <%= a_subscription.id %>
+        </td>
+
+        <td>
+          <%= a_subscription.subscriber_id %>
+        </td>
+
+        <td>
+          <%= a_subscription.creator_id %>
+        </td>
+
+        <td>
+          <%= a_subscription.active %>
+        </td>
+
+        <td>
+          <%= a_subscription.duration %>
+        </td>
+
+        <td>
+          <%= a_subscription.amount %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_subscription.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_subscription.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/subscriptions/<%= a_subscription.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

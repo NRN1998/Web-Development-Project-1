@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Subscription resource:
+
+  # CREATE
+  post("/insert_subscription", { :controller => "subscriptions", :action => "create" })
+          
+  # READ
+  get("/subscriptions", { :controller => "subscriptions", :action => "index" })
+  
+  get("/subscriptions/:path_id", { :controller => "subscriptions", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_subscription/:path_id", { :controller => "subscriptions", :action => "update" })
+  
+  # DELETE
+  get("/delete_subscription/:path_id", { :controller => "subscriptions", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Comment resource:
 
   # CREATE
